@@ -1,0 +1,54 @@
+{
+    "metaDataVersion": "1.0.0",
+    "category": "com.microchip.ide.project",
+    "content": {
+        "metaDataVersion": "1.3.0",
+        "name": "com.microchip.mcu8.mplabx.project.avr128da48-freertos-adc-pir-mplab-mcc",
+        "version": " ",
+        "displayName": "",
+        "projectName": "avr128da48-freertos-adc-pir-mplab-mcc",
+        "shortDescription": "This repository contains one MPLAB X project that demonstrates the use of FreeRTOS with two tasks to monitor and display the output voltage of a PIR (Passive Infrared) sensor, using the AVR128DA48 microcontroller.",
+        "ide": {
+            "name": "MPLAB X",
+            "semverRange": ">=6.20.0"
+        },
+        "compiler": [
+            {
+                "name": "XC8",
+                "semverRange": "^2.50.0"
+            }
+        ],
+        "dfp": {
+            "name": "",
+            "semverRange": ""
+        },
+        "configurator": {
+            "name": "",
+            "semverRange": ""
+        },
+        "device": {
+            "metaDataVersion": "1.0.0",
+            "category": "com.microchip.portal.contentRef",
+            "content": {
+                "metaDataVersion": "1.0.0",
+                "category": "com.microchip.device",
+                "name": "AVR128DA48",
+                "versionRange": "*"
+            }
+        },
+        "author": "Teodor-Emilian Petre",
+        "peripherals": [],
+        "keywords": [],
+        "additionalData": {
+            "longDescription": {
+                "metaDataVersion": "1.0.0",
+                "category": "com.microchip.portal.fileRef",
+                "content": {
+                    "metaDataVersion": "1.0.0",
+                    "fileName": "./README.md",
+                    "mimeType": "text/markdown"
+                }
+            }
+        }
+    }
+}
