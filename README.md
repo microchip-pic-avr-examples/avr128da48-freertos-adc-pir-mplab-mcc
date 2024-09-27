@@ -8,11 +8,11 @@
    </picture>
 </a>
 
-# PIR Motion Detection with FreeRTOS using AVR128DA48 Microcontroller with MCC Melody
+# PIR Motion Detection with FreeRTOS™ Using AVR128DA48 Microcontroller with MCC Melody
 
-This repository contains one MPLAB® X project that demonstrates the use of FreeRTOS with two tasks to monitor and display the output voltage of a PIR (Passive Infrared) sensor. The first task reads the analog voltage from the PIR sensor using the ADC (Analog-to-Digital Converter), while the second task prints a message to a serial terminal, providing feedback on the system's operation, if motion is detected. The project showcases the efficient multitasking and real-time capabilities of FreeRTOS, enabling the seamless execution of both sensor data acquisition and communication over a serial interface.
+This repository contains one MPLAB® X project that demonstrates the use of FreeRTOS with two tasks to monitor and display the output voltage of a PIR (Passive Infrared) sensor. The first task reads the analog voltage from the PIR sensor using the ADC (Analog-to-Digital Converter). In contrast, the second task prints a message to a serial terminal, providing feedback on the system's operation if motion is detected. The project showcases FreeRTOS' efficient multitasking and real-time capabilities, enabling the seamless execution of data acquisition and communication over a serial interface.
 
-This project implements a FreeRTOS-based system, using an 8-bit AVR® device with two tasks working together for motion detection using a PIR sensor. The first task initiates an ADC conversion every 2 seconds, using a delay task, and then enters a suspended state. It is resumed by an external interrupt, the ADC outside the window interrupt, when motion is detected, after which it resumes the second task, `prvQueuePrintMessageTask`. Then, the `prvQueueReadADCTask` task sends a command to a queue. The second task, upon resumption and receiving the right value from the first task, prints "Motion detected!" message to the serial terminal, then suspends itself until the next ADC interrupt resumes the process. This setup efficiently manages motion detection and serial communication using task suspension and resumption.
+This project implements a FreeRTOS-based system using an 8-bit AVR® device with two tasks working together for motion detection using a PIR sensor. The first task initiates an ADC conversion every 2 seconds using a delay task, then enters a Suspended state. It is resumed by an external interrupt, the ADC outside the window interrupt, when motion is detected, after which it resumes the second task, `prvQueuePrintMessageTask`. Then, the `prvQueueReadADCTask` task sends a command to a queue. The second task, upon resumption and receiving the right value from the first task, prints a `"Motion detected!"` message to the serial terminal, then suspends itself until the next ADC interrupt resumes the process. This setup efficiently manages motion detection and serial communication using task suspension and resumption.
 
 <br><img src="images/avr128da48-pir-project.png" height="400">
 
@@ -20,7 +20,7 @@ This project implements a FreeRTOS-based system, using an 8-bit AVR® device wit
 
 More details and code examples on the AVR128DA48 can be found at the following links:
 
-- [FreeRTOS™ pages](https://www.freertos.org/index.html)
+- [FreeRTOS™](https://www.freertos.org/index.html)
 - [FreeRTOS Demo for the Microchip AVR Dx Port](https://www.freertos.org/microchip-avr-dx-demo.html)
 - [AVR128DA48 Product Page](https://www.microchip.com/wwwproducts/en/AVR128DA48?utm_source=GitHub&utm_medium=TextLink&utm_campaign=MCU8_AVR-DA&utm_content=avr128da48-freertos-adc-pir-mplab-mcc-github&utm_bu=MCU08)
 - [AVR128DA48 Code Examples on GitHub](https://github.com/microchip-pic-avr-examples?q=AVR128DA48)
@@ -28,29 +28,29 @@ More details and code examples on the AVR128DA48 can be found at the following l
 ## Software Used
 
 - [MPLAB X IDE v6.20 or newer](https://www.microchip.com/en-us/tools-resources/develop/mplab-x-ide?utm_source=GitHub&utm_medium=TextLink&utm_campaign=MCU8_AVR-DA&utm_content=avr128da48-freertos-adc-pir-mplab-mcc-github&utm_bu=MCU08)
-- [MPLAB XC8 v2.50 or a newer compiler](https://www.microchip.com/en-us/tools-resources/develop/mplab-xc-compilers?utm_source=GitHub&utm_medium=TextLink&utm_campaign=MCU8_AVR-DA&utm_content=avr128da48-freertos-adc-pir-mplab-mcc-github&utm_bu=MCU08)
+- [MPLAB® XC8 v2.50 or a newer compiler](https://www.microchip.com/en-us/tools-resources/develop/mplab-xc-compilers?utm_source=GitHub&utm_medium=TextLink&utm_campaign=MCU8_AVR-DA&utm_content=avr128da48-freertos-adc-pir-mplab-mcc-github&utm_bu=MCU08)
 - [AVR-Dx v2.6.303 or newer Device Pack](https://packs.download.microchip.com/#collapse-Microchip-AVR-Dx-DFP-pdsc)
 
 ## Hardware Used
 
-- Two [AVR128DA48 Curiosity Nano Development board (DM164151)](https://www.microchip.com/Developmenttools/ProductDetails/DM164151) are used as test platforms:
+- The [AVR128DA48 Curiosity Nano Development board (DM164151)](https://www.microchip.com/Developmenttools/ProductDetails/DM164151) is used as test platform:
   <br><img src="images/avr128da48_cnano.png" width="600">
 
 - Curiosity Nano Adapter:
   <br><img src="images/curiosity-nano-adapter.png" height="400">
 
-- [PIR Click MikroE](https://www.mikroe.com/pir-click?srsltid=AfmBOopYUtTlNvggeqKTCLglWKHqCbVnXYskk-TY1tI2J5-hB3BICJUI) Board:
+- [PIR Click MikroE](https://www.mikroe.com/pir-click?srsltid=AfmBOopYUtTlNvggeqKTCLglWKHqCbVnXYskk-TY1tI2J5-hB3BICJUI) board:
   <br><img src="images/pir-click.png" height="400">
 
 ## Setup
 
-The following peripheral and clock configurations are set up using the MPLAB Code Configurator (MCC) Melody for the AVR128DA48:
+The following peripheral and clock configurations are set up using the MPLAB® Code Configurator (MCC) Melody for the AVR128DA48:
 
 1. Clock Control:
    - Oscillator Frequency Selection: 24 MHz system clock
      <br><img src="images/mcc-clkctrl.png" height="400">
 2. FreeRTOS Library:
-   - Select RTOS Interface Timer Selection (TCB0 for example)
+   - Select RTOS Interface Timer Selection (TCB0, for example)
    - Set the Tick Rate (Hz): 1000
    - Communication Protocol: UART
    - BaudRate Selector: 115200
